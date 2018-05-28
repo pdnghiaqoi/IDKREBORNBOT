@@ -14,7 +14,7 @@ var ball = [
 ]
 bot.on("ready",function() {
     console.log("Cool! My bot is ready!")
-    bot.user.setGame("Beta. 24/7 host")
+    bot.user.setGame("help/. Stil WIP!")
 })
 
 
@@ -45,9 +45,9 @@ bot.on('message', (message) => {
            .addField("/help", "Show this.")
            .addField("/info", "Show the info of this bot.")
            .addField("/loader", "Show the loader of our admin.")
-           .addField("/8balls", "Let the 8 balls answer your question!", true)
-           .addField("/ping", "ping pong", true)
-           .addField("/pong", "pong ping", true)
+           .addField("/8balls", "Let the 8 balls answer your question!")
+           .addField("/ping", "ping pong")
+           .addField("/pong", "pong ping")
            .setColor(0x00FFFF)
            .setFooter("List of commands")
         message.channel.sendEmbed(embed);
