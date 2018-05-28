@@ -24,7 +24,8 @@ function play(connection, message){
        if (server.quene[0]) play(connection, message);
        else connection.disconnect();
     });
-}
+};
+
 var servers = {};
 bot.on("ready",function() {
     console.log("Cool! My bot is ready!")
