@@ -31,12 +31,17 @@ bot.on('message', (message) => {
         case "info":
         message.channel.sendMessage("I am TheIdiotBot, the bot that actually idiot maded by pdnghiaqoi!");
         break;
-        default:
-        message.channel.sendMessage("Invaild commands! ourbotisgettinginvailded");
-        break;
         case "8balls":
         if (args[1]) message.channel.sendMessage(ball[Math.floor(Math.random() * ball.length)]);
         else message.channel.sendMessage("wait what did u say again?");
+        case "loader":
+        message.channel.sendMessage("Your loader is require(992103297). Thank you for using us!")
+        break;
+        case "help":
+        message.channel.sendMessage("```Commands:\n/help -Show this.\n/ping -ping pong\n/pong -pong ping\n/info -Show the info of this bot!\n/loader -Show the loader of my admin.\n/8balls -8 balls answer your question.```")
+        break;
+        default:
+        message.channel.sendMessage("Invaild commands! ourbotisgettinginvailded");
         break;
 
     }
