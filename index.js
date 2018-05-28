@@ -28,6 +28,9 @@ bot.on('message', (message) => {
         case "ping":
         message.channel.sendMessage("pong");
         break;
+        case "pong":
+        message.channel.sendMessage("ping");
+        break;
         case "info":
         message.channel.sendMessage("I am TheIdiotBot, the bot that actually idiot maded by pdnghiaqoi!");
         break;
@@ -38,7 +41,16 @@ bot.on('message', (message) => {
         message.channel.sendMessage("Your loader is require(992103297). Thank you for using us!")
         break;
         case "help":
-        message.channel.sendMessage("```Commands:\n/help -Show this.\n/ping -ping pong\n/pong -pong ping\n/info -Show the info of this bot!\n/loader -Show the loader of my admin.\n/8balls -8 balls answer your question.```")
+        var embed = new Discord.RichEmbed()
+           .addField("/help", "Show this.")
+           .addField("/info", "Show the info of this bot.")
+           .addField("/loader", "Show the loader of our admin.")
+           .addField("/8balls", "Let the 8 balls answer your question!", true)
+           .addField("/ping", "ping pong", true)
+           .addField("/pong", "pong ping", true)
+           .setColor(0x00FFFF)
+           .setFooter("List of commands")
+        message.channel.sendEmbed(embed);
         break;
         default:
         message.channel.sendMessage("Invaild commands! ourbotisgettinginvailded");
