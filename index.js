@@ -41,7 +41,10 @@ bot.on('message', (message) => {
         case "8balls":
         if (args[1]) 
         var embed = new Discord.RichEmbed()
-             .addField("8 Balls", ball[Math.floor(Math.random() * ball.length)])         
+             .addField("8 Balls", ball[Math.floor(Math.random() * ball.length)])  
+                   .setColor(0x00FFFF)
+             .setFooter("memes")
+              message.channel.sendEmbed(embed);
         else message.channel.sendMessage("wait what did u say again?");
            break;
         case "loader":
