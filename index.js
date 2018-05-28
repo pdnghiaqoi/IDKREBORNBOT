@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
+const YTDL = require("ytdl-core");
 
 var prefix = "/"
 
@@ -12,11 +13,22 @@ var ball = [
     "despacito 2 comfrimed",
     "i dont know",
 ]
+function play(connection, message){
+    var server = servers[message.guild.id];
 
+    server.dispatcher = connection.playStream(YTDL(server.quene[0],{filter: "audioonly"}));
 
+    server.quene.shift();
+
+    server.dispatcher.on("end",function(){
+       if (server.quene[0]) play(connection, message);
+       else connection.disconnect();
+    });
+}
+var servers = {};
 bot.on("ready",function() {
     console.log("Cool! My bot is ready!")
-    bot.user.setGame("help/. Still in WIP!")
+    bot.user.setGame("help/. Stil WIP!")
 })
 
 
@@ -54,6 +66,42 @@ bot.on('message', (message) => {
            .setFooter("List of commands")
         message.channel.sendEmbed(embed);
         break;
+        case "snd":
+        if (!args[1]) {
+            message.channel.sendMessage("hmmm...no link?")
+        }
+
+        if (!message.member.voiceChannel) {
+            message.channel.sendMessage("wait a min... voice channel pls?")
+        }
+
+        if (!servers[message.guild.id]) servers[message.guild.id] = {
+            quene: []
+        };
+        var server = servers[message.guild.id];
+        
+        server.quene.push(args[1]);
+
+        if (!message.guild.voiceConnection) message.member.voiceChannel.join().then(function(connection) {
+        play(connection, message);
+        });
+        break;
+        case "skip":
+        var server = servers[message.guild.id];
+
+        if (server.dispatcher) server.dispatcher.end();
+        break;
+        case "stop":
+        var server = servers[message.guild.id];
+        if (message.guild.voiceConnection)
+        {
+            for (var i = server.queue.length - 1; i >= 0; i--) 
+            {
+                server.queue.splice(i, 1);
+         }
+            server.dispatcher.end();
+            console.log("[" + new Date().toLocaleString() + "] Stopped the queue.");
+        } break;
         default:
         message.channel.sendMessage("Invaild commands! ourbotisgettinginvailded");
         break;
