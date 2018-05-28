@@ -16,7 +16,7 @@ var ball = [
 
 bot.on("ready",function() {
     console.log("Cool! My bot is ready!")
-    bot.user.setGame("help/. Stil WIP!")
+    bot.user.setGame("help/. Still in WIP!")
 })
 
 
