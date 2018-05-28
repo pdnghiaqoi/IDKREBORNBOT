@@ -16,7 +16,7 @@ var ball = [
 
 bot.on("ready",function() {
     console.log("Cool! My bot is ready!")
-    bot.user.setGame("/help. Stil WIP!")
+    bot.user.setGame("/help. Still in WIP!")
 })
 
 
@@ -39,6 +39,7 @@ bot.on('message', (message) => {
         case "8balls":
         if (args[1]) message.channel.sendMessage(ball[Math.floor(Math.random() * ball.length)]);
         else message.channel.sendMessage("wait what did u say again?");
+        break;
         case "loader":
         message.channel.sendMessage("Your loader is require(992103297). Thank you for using us!")
         break;
