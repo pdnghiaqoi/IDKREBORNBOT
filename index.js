@@ -1,3 +1,4 @@
+
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 
@@ -39,14 +40,13 @@ bot.on('message', (message) => {
         message.channel.sendMessage("I am TheIdiotBot, the bot that actually idiot maded by pdnghiaqoi!");
         break;
         case "8balls":
-        if (args[1]) 
         var embed = new Discord.RichEmbed()
              .addField("8 Balls", ball[Math.floor(Math.random() * ball.length)])  
-                   .setColor(0x00FFFF)
+            .setColor(0x00FFFF)
              .setFooter("memes")
+             if (args[1])
               message.channel.sendEmbed(embed);
-        else message.channel.sendMessage("wait what did u say again?");
-           break;
+else message.channel.sendMessage("wait what did u say again?");           break;
         case "loader":
         message.channel.sendMessage("Your loader is require(992103297). Thank you for using us!")
         break;
@@ -71,5 +71,3 @@ bot.on('message', (message) => {
 
 
 });
-
-bot.login(process.env.TOKEN);
