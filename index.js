@@ -44,9 +44,7 @@ bot.on('message', (message) => {
              .addField("8 Balls", ball[Math.floor(Math.random() * ball.length)])  
             .setColor(0x00FFFF)
              .setFooter("memes")
-             if (args[1])
               message.channel.sendEmbed(embed);
-else message.channel.sendMessage("wait what did u say again?");           break;
         case "loader":
         message.channel.sendMessage("Your loader is require(992103297). Thank you for using us!")
         break;
