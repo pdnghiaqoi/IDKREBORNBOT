@@ -3,6 +3,7 @@ const bot = new Discord.Client();
 
 bot.on("ready",function() {
     console.log("Cool! My bot is ready!")
+    bot.user.setGame("Beta. 24/7 host")
 })
 
 
