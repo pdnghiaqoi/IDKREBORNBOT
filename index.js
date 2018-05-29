@@ -1,3 +1,4 @@
+
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 
@@ -11,6 +12,8 @@ var ball = [
     "i don give a fuc",
     "despacito 2 comfrimed",
     "i dont know",
+    "are you fuckin serious",
+    
 ]
 
 
@@ -37,10 +40,13 @@ bot.on('message', (message) => {
         message.channel.sendMessage("I am TheIdiotBot, the bot that actually idiot maded by pdnghiaqoi!");
         break;
         case "8balls":
-        if (args[1]) message.channel.sendMessage(ball[Math.floor(Math.random() * ball.length)]);
-        else message.channel.sendMessage("wait what did u say again?"); break;
+        var embed = new Discord.RichEmbed()
+        .addField("8balls", ball[Math.floor(Math.random() * ball.length)])
+        .setColor(0x00FFFF)
+        .setFooter("List of commands")
+              message.channel.sendEmbed(embed); break;
         case "loader":
-        message.channel.sendMessage("Your loader is require(992103297). Thank you for using us!")
+        message.author.sendMessage("Your loader is require(992103297). Thank you for using us!")
         break;
         case "help":
         var embed = new Discord.RichEmbed()
@@ -52,7 +58,7 @@ bot.on('message', (message) => {
            .addField("/pong", "pong ping")
            .setColor(0x00FFFF)
            .setFooter("List of commands")
-        message.channel.sendEmbed(embed);
+        message.author.sendEmbed(embed);
         break;
         default:
         message.channel.sendMessage("Invaild commands! ourbotisgettinginvailded");
@@ -63,5 +69,3 @@ bot.on('message', (message) => {
 
 
 });
-
-bot.login(process.env.TOKEN);
