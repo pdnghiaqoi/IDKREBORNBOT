@@ -52,10 +52,10 @@ bot.on('message', (message) => {
            .addField("/pong", "pong ping")
            .setColor(0x00FFFF)
            .setFooter("List of commands")
-        message.channel.sendEmbed(embed);
+        message.author.sendEmbed(embed);
         break;
         default:
-        message.author.sendMessage("Invaild commands! ourbotisgettinginvailded");
+        message.channel.sendMessage("Invaild commands! ourbotisgettinginvailded");
         break;
 
     }
