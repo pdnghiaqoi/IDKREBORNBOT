@@ -40,9 +40,7 @@ bot.on("ready",function() {
 bot.on('message', (message) => {
     if (message.author.equals(bot.name)) return;
    
-    if(message.channel.type === "dm") {
-        message.channel.sendMessage("dm? sorry,that for nerd")
-    }; return;
+    if(message.channel.type === "dm") return;
 
     if(!message.content.startsWith(prefix)) return;
 
