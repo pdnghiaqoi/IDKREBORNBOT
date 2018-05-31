@@ -41,7 +41,7 @@ bot.on('message', (message) => {
         p1 = "./meme/1.jps"; p2 = "./meme/2.jps"; p3 = "./meme/3.jps"; p4 = "./meme/4.jps"; p5 = "./meme/5.jps"; p6 = "./meme/6.jps"; p7 = "./meme/7.jps"; p8 = "./meme/8.jps"; p9 = "./meme/9.jps"; p10 = "./meme/10.jps"; p11 = "./meme/11.jps"; p12 = "./meme/12.jps"; p13 = "./meme/13.jps"; p14 = "./meme/14.png"; p15 = "./meme/15.png"; 
         number = 15;
         var random = Math.floor (Math.random() * (number - 1 + 1)) + 1;
-        if (message.content === "/despacito 2") {
+        if (message.content === "despacito 2") {
         switch (random) {
             case 1: message.channel.send ({ files: [p1] }); break;
             case 2: message.channel.send ({ files: [p2] }); break;
