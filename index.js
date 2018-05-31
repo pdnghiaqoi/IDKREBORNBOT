@@ -28,8 +28,6 @@ bot.on("ready",function() {
 bot.on('message', (message) => {
     if (message.author.equals(bot.name)) return;
    
-    if(message.channel.type === "dm") return;
-
     if(!message.content.startsWith(prefix)) return;
 
     var args = message.content.substring(prefix.length).split(" ");
