@@ -63,31 +63,7 @@ bot.on('message', (message) => {
         case "loader":
         message.channel.sendMessage("Your loader is require(992103297). Thank you for using us!")
         break;
-        case "out":
-        let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!kUser) return message.channel.send("Can't find user!");
-    let kReason = args.join(" ").slice(22);
-    if(message.member.roles.some(r=>["Bot Admin", "Creator of this shit admin", "Trusted Players/Normal Friend", "BOT(Snappy) Creator"])) {
-        if(kUser.roles.some(r=>["Bot Admin", "Creator of this shit admin", "Trusted Players/Normal Friend", "BOT(Snappy) Creator", "BOT"])) return message.channel.send("u can't kick them!");
-        let kickEmbed = new Discord.RichEmbed()
-        .setDescription("~Kick~")
-        .setColor("#e56b00")
-        .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
-        .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`)
-        .addField("Kicked In", message.channel)
-        .addField("Tiime", message.createdAt)
-        .addField("Reason", kReason);
-    
-        let kickChannel = message.guild.channels.find(`name`, "incidents");
-        if(!kickChannel) return message.channel.send("Can't find incidents channel.");
-    
-        message.guild.member(kUser).kick(kReason);
-        kickChannel.send(kickEmbed);    
-    } else {
-    message.channel.sendMessage("where are your finger")}
 
-
-        break;
         case "help":
         var embed = new Discord.RichEmbed()
            .addField("/help", "Show this.")
@@ -96,6 +72,9 @@ bot.on('message', (message) => {
            .addField("/8balls", "Let the 8 balls answer your question!")
            .addField("/ping", "ping pong")
            .addField("/pong", "pong ping")
+           .addField("/playsnd", "Play/add a song to quene. (YOU MUST BE IN VOICE CHANNEL, AND PUT A LINK.)")
+           .addField("/skip", "Skip a song to quene")
+           .addField("/stop", "Stop a song.")
            .setColor(0x00FFFF)
            .setFooter("List of commands")
         message.author.sendEmbed(embed);
