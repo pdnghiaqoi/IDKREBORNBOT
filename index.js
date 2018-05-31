@@ -16,12 +16,13 @@ var ball = [
     "i don give a fuc",
     "despacito 2 comfrimed",
     "i dont know",
+    "meme daddy pls spread the meme virus to this guy",
 ]
 
 
 bot.on("ready",function() {
     console.log("Cool! My bot is ready!")
-    bot.user.setGame("/help. Still in WIP!")
+    bot.user.setActivity("/help.Still WIP!", {type: "WATCHING"});
 })
 
 
@@ -56,6 +57,7 @@ bot.on('message', (message) => {
            .addField("/8balls", "Let the 8 balls answer your question!")
            .addField("/ping", "ping pong")
            .addField("/pong", "pong ping")
+           .addField("Tip:You can also use the commands if you are dm with me!", "<@419400751098494978>")
            .setColor(0x00FFFF)
            .setFooter("List of commands")
         message.author.sendEmbed(embed);
