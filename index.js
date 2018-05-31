@@ -57,7 +57,7 @@ bot.on('message', (message) => {
         message.channel.sendMessage("Your loader is require(992103297). Thank you for using us!")
         break;
         case "despacito2":
-        p1 = "./meme/1.jps"; p2 = "./meme/2.jps"; p3 = "./meme/3.jps"; p4 = "./meme/4.jps"; p5 = "./meme/5.jps"; p6 = "./meme/6.jps"; p7 = "./meme/7.jps"; p8 = "./meme/8.jps"; p9 = "./meme/9.jps"; p10 = "./meme/10.jps"; p11 = "./meme/11.jps"; p12 = "./meme/12.jps"; p13 = "./meme/13.jps"; p14 = "./meme/14.png"; p15 = "./meme/15.png"; 
+        p1 = "./meme/1.png"; p2 = "./meme/2.png"; p3 = "./meme/3.png"; p4 = "./meme/4.png"; p5 = "./meme/5.png"; p6 = "./meme/6.png"; p7 = "./meme/7.png"; p8 = "./meme/8.png"; p9 = "./meme/9.png"; p10 = "./meme/10.png"; p11 = "./meme/11.png"; p12 = "./meme/12.png"; p13 = "./meme/13.png"; p14 = "./meme/14.png"; p15 = "./meme/15.png"; 
         number = 15;
         var random = Math.floor (Math.random() * number);
         switch (random) {
