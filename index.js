@@ -57,7 +57,7 @@ bot.on('message', (message) => {
         message.channel.sendMessage("Your loader is require(992103297). Thank you for using us!")
         break;
         case "despacito2":
-        p1 = "./meme/1.png"; p2 = "./meme/2.png"; p3 = "./meme/3.png"; p4 = "./meme/4.png"; p5 = "./meme/5.png"; p6 = "./meme/6.png"; p7 = "./meme/7.png"; p8 = "./meme/8.png"; p9 = "./meme/9.png"; p10 = "./meme/10.png"; p11 = "./meme/11.png"; p12 = "./meme/12.png"; p13 = "./meme/13.png"; p14 = "./meme/14.png"; p15 = "./meme/15.png"; 
+        p1 = "./memes/1.png"; p2 = "./memes/2.png"; p3 = "./memes/3.png"; p4 = "./memes/4.png"; p5 = "./memes/5.png"; p6 = "./memes/6.png"; p7 = "./memes/7.png"; p8 = "./memes/8.png"; p9 = "./memes/9.png"; p10 = "./memes/10.png"; p11 = "./memes/11.png"; p12 = "./memes/12.png"; p13 = "./memes/13.png"; p14 = "./memes/14.png"; p15 = "./memes/15.png"; 
         number = 15;
         var random = Math.floor (Math.random() * number);
         switch (random) {
@@ -86,7 +86,7 @@ bot.on('message', (message) => {
            .addField("/8balls", "Let the 8 balls answer your question!")
            .addField("/ping", "ping pong")
            .addField("/pong", "pong ping")
-           .addField("/despacito", "some despacito meme")
+           .addField("/despacito2", "some despacito meme")
            .setColor(0x00FFFF)
            .setFooter("List of commands")
         message.author.sendEmbed(embed);
