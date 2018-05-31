@@ -19,14 +19,6 @@ var ball = [
     "meme daddy pls spread the meme virus to this guy",
 ]
 
-function randommeme() {
-    
-    var rnd = Math.floor(Math.random * 15);
-    if (rnd == 0) {
-    rnd = 1
-    };
-
-};
 bot.on("ready",function() {
     console.log("Cool! My bot is ready!")
     bot.user.setActivity("/help. Still WIP!", {type: "WATCHING"});
@@ -80,9 +72,9 @@ bot.on('message', (message) => {
     break;
     case "storytime":
         p1 = "./baits/1.png"; p2 = "./baits/2.png"; p3 = "./baits/3.png"; p4 = "./baits/4.png"; p5 = "./baits/5.png"; p6 = "./baits/6.png"; p7 = "./baits/7.png"; p8 = "./baits/8.png"; p9 = "./baits/9.png"; p10 = "./baits/10.png"; p11 = "./baits/11.png"; p12 = "./baits/12.png"; p13 = "./baits/13.png"; p14 = "./baits/14.png"; p15 = "./baits/15.png"; p16 = "./baits/16.png"; p17 = "./baits/17.png"; p18 = "./baits/18.png"; p19 = "./baits/19.png"; p20 = "./baits/20.png"; p21 = "./baits/21.png"; p22 = "./baits/22.png"; p23 = "./baits/23.png"; p24 = "./baits/24.png"; p25 = "./baits/25.png";
-        number = 15;
-        var random = Math.floor (Math.random() * number);
-        switch (random) {
+        number1 = 25;
+        var random1 = Math.floor (Math.random() * number1);
+        switch (random1) {
             case 1: message.channel.send ({ files: [p1] }); break;
             case 2: message.channel.send ({ files: [p2] }); break;
             case 3: message.channel.send ({ files: [p3] }); break;
