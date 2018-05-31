@@ -38,7 +38,7 @@ function randommeme() {
     myImage[14] = ".meme/14.png";
     myImage[15] = ".meme/15.png";
     
-    var rnd = Math.floor(Math.random * myImages.length);
+    var rnd = Math.floor(Math.random * myImage.length);
     if (rnd == 0) {
     rnd = 1
     };
