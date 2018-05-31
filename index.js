@@ -19,32 +19,8 @@ var ball = [
     "meme daddy pls spread the meme virus to this guy",
 ]
 
-function randommeme() {
-    var myImage = new Array();
 
-    myImage[1] = ".meme/1.jpg";
-    myImage[2] = ".meme/2.jpg";
-    myImage[3] = ".meme/3.jpg";
-    myImage[4] = ".meme/4.jpg";
-    myImage[5] = ".meme/5.jpg";
-    myImage[6] = ".meme/6.jpg";
-    myImage[7] = ".meme/7.jpg";
-    myImage[8] = ".meme/8.jpg";
-    myImage[9] = ".meme/9.jpg";
-    myImage[10] = ".meme/10.jpg";
-    myImage[11] = ".meme/11.jpg";
-    myImage[12] = ".meme/12.jpg";
-    myImage[13] = ".meme/13.jpg";
-    myImage[14] = ".meme/14.png";
-    myImage[15] = ".meme/15.png";
-    
-    var rnd = Math.floor(Math.random * myImage.length);
-    if (rnd == 0) {
-    rnd = 1
-    };
 
-    message.channel.send({ files: [myImage[rnd]] })
-};
 bot.on("ready",function() {
     console.log("Cool! My bot is ready!")
     bot.user.setActivity("/help. Still WIP!", {type: "WATCHING"});
@@ -74,8 +50,30 @@ bot.on('message', (message) => {
         message.channel.sendMessage("Your loader is require(992103297). Thank you for using us!")
         break;
         case "despacito":
-        randommeme();
-        break;
+ var myImage = new Array();
+
+    myImage[1] = ".meme/1.jpg";
+    myImage[2] = ".meme/2.jpg";
+    myImage[3] = ".meme/3.jpg";
+    myImage[4] = ".meme/4.jpg";
+    myImage[5] = ".meme/5.jpg";
+    myImage[6] = ".meme/6.jpg";
+    myImage[7] = ".meme/7.jpg";
+    myImage[8] = ".meme/8.jpg";
+    myImage[9] = ".meme/9.jpg";
+    myImage[10] = ".meme/10.jpg";
+    myImage[11] = ".meme/11.jpg";
+    myImage[12] = ".meme/12.jpg";
+    myImage[13] = ".meme/13.jpg";
+    myImage[14] = ".meme/14.png";
+    myImage[15] = ".meme/15.png";
+    
+    var rnd = Math.floor(Math.random * myImage.length);
+    if (rnd == 0) {
+    rnd = 1
+    };   
+
+    message.channel.send({ files: [myImage[rnd]] })        break;
         case "help":
         var embed = new Discord.RichEmbed()
            .addField("/help", "Show this.")
