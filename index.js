@@ -39,6 +39,10 @@ bot.on("ready",function() {
 
 bot.on('message', (message) => {
     if (message.author.equals(bot.name)) return;
+   
+    if(message.channel.type === "dm") {
+        message.channel.sendMessage("dm? sorry,that for nerd")
+    }; return;
 
     if(!message.content.startsWith(prefix)) return;
 
@@ -59,47 +63,31 @@ bot.on('message', (message) => {
         case "loader":
         message.channel.sendMessage("Your loader is require(992103297). Thank you for using us!")
         break;
-        case "playsnd":
-             if (!args[1]) {
-                 message.channel.sendMessage('hmmm.... don have link?');
-                 return;
-             };
+        case "out":
+        let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    if(!kUser) return message.channel.send("Can't find user!");
+    let kReason = args.join(" ").slice(22);
+    if(message.member.roles.some(r=>["Bot Admin", "Creator of this shit admin", "Trusted Players/Normal Friend", "BOT(Snappy) Creator"])) {
+        if(kUser.roles.some(r=>["Bot Admin", "Creator of this shit admin", "Trusted Players/Normal Friend", "BOT(Snappy) Creator", "BOT"])) return message.channel.send("u can't kick them!");
+        let kickEmbed = new Discord.RichEmbed()
+        .setDescription("~Kick~")
+        .setColor("#e56b00")
+        .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
+        .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`)
+        .addField("Kicked In", message.channel)
+        .addField("Tiime", message.createdAt)
+        .addField("Reason", kReason);
+    
+        let kickChannel = message.guild.channels.find(`name`, "incidents");
+        if(!kickChannel) return message.channel.send("Can't find incidents channel.");
+    
+        message.guild.member(kUser).kick(kReason);
+        kickChannel.send(kickEmbed);    
+    } else {
+    message.channel.sendMessage("where are your finger")}
 
-             if (!message.member.voiceChannel) {
-                message.channel.sendMessage('pls go into voice channel');
-                return;
-            }
-
-            if(!servers[message.guild.id]) servers[message.guild.id] = {
-                quene: []
-            };
-
-            var server = servers[message.guild.id];
-
-            server.quene.push(args[1]);
-
-            if (!message.guild.voiceConnection) message.member.voiceChannel.join().then(function(connection) {
-              play(connection, message);
-            });
 
         break;
-        case "skip":
-        var server = servers[message.guild.id];
-
-        if (server.dispatcher) server.dispatcher.end();
-        break;
-        case "stop":
-        var server = servers[message.guild.id];
-
-        if (message.guild.voiceConnection)
-        {
-            for (var i = server.queue.length - 1; i >= 0; i--) 
-            {
-                server.queue.splice(i, 1);
-         }
-            server.dispatcher.end();
-        }        break;
-
         case "help":
         var embed = new Discord.RichEmbed()
            .addField("/help", "Show this.")
@@ -108,9 +96,6 @@ bot.on('message', (message) => {
            .addField("/8balls", "Let the 8 balls answer your question!")
            .addField("/ping", "ping pong")
            .addField("/pong", "pong ping")
-           .addField("/playsnd", "Play/add a song to quene. (YOU MUST BE IN VOICE CHANNEL, AND PUT A LINK.)")
-           .addField("/skip", "Skip a song to quene")
-           .addField("/stop", "Stop a song.")
            .setColor(0x00FFFF)
            .setFooter("List of commands")
         message.author.sendEmbed(embed);
