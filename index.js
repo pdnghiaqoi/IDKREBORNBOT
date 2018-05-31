@@ -5,18 +5,6 @@ const bot = new Discord.Client();
 
 var prefix = "/"
 
-function play(connection, message) {
-    var server = servers[message.guild.id];
-
-    server.dispatcher = connection.playStream(YTDL(server.quene[0], {filter: "audioonly"}));
-
-    server.quene.shift();
-
-    server.dispatcher.on("end", function() {
-         if (server.quene[0]) play(connection, message);
-         else connection.disconnect();
-    });
-}
 var servers = {};
 
 
@@ -70,9 +58,6 @@ bot.on('message', (message) => {
            .addField("/8balls", "Let the 8 balls answer your question!")
            .addField("/ping", "ping pong")
            .addField("/pong", "pong ping")
-           .addField("/playsnd", "Play/add a song to quene. (YOU MUST BE IN VOICE CHANNEL, AND PUT A LINK.)")
-           .addField("/skip", "Skip a song to quene")
-           .addField("/stop", "Stop a song.")
            .setColor(0x00FFFF)
            .setFooter("List of commands")
         message.author.sendEmbed(embed);
