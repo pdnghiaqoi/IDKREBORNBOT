@@ -5,20 +5,6 @@ const bot = new Discord.Client();
 
 var prefix = "/"
 
-function play(connection, message) {
-    var ser = servers[message.guild.id];
-
-    ser.dispatcher = connection.playStream(YTDL(ser.quene[0], {filter: "audioonly"}));
-
-    ser.quene.shift();
-
-    ser.dispatcher.on("end", function() {
-         if (ser.quene[0]) play(connection, message);
-         else connection.disconnect();
-    });
-
-};
-var servers = {};
 
 
 var ball = [
@@ -83,47 +69,6 @@ bot.on('message', (message) => {
             case 15: message.channel.send ("minedespacito?", { files: [p15] }); break;
         };
     break;
-    case "play":
-
-    if (!args[1]) {
-        message.channel.sendMessage("link after commands pls")
-        return;
-    }
-
-    if (!message.member.voiceChannel) {
-        message.channel.sendMessage("cmon,join the voice channel. ruidiot")
-        return;
-    }
-    if (!servers[message.guild.id]) servers[message.guild.id] = {
-        quene: []
-    };
-
-    var ser = servers[message.guild.id];
-
-    ser.quene.push(args[1]);
-
-    if (!message.guild.voiceConnection) message.member.voiceChannel.join().then(function(connection) {
-       play(connection, message);
-    });
-    break;
-    case "skip":
-    var ser = servers[message.guild.id];
-
-    if (ser.dispatcher) ser.dispatcher.end();
-    break;
-    case "stop":
-    var ser = servers[message.guild.id];
-    
-    if (message.guild.voiceConnection)
-        {
-            for (var i = server.queue.length - 1; i >= 0; i--) 
-            {
-                server.queue.splice(i, 1);
-         }
-            server.dispatcher.end();
-            console.log("[" + new Date().toLocaleString() + "] Stopped the queue.");
-        };
-    break;
     case "storytime":
         p1 = "./baits/1.png"; p2 = "./baits/2.png"; p3 = "./baits/3.png"; p4 = "./baits/4.png"; p5 = "./baits/5.png"; p6 = "./baits/6.png"; p7 = "./baits/7.png"; p8 = "./baits/8.png"; p9 = "./baits/9.png"; p10 = "./baits/10.png"; p11 = "./baits/11.png"; p12 = "./baits/12.png"; p13 = "./baits/13.png"; p14 = "./baits/14.png"; p15 = "./baits/15.png"; p16 = "./baits/16.png"; p17 = "./baits/17.png"; p18 = "./baits/18.png"; p19 = "./baits/19.png"; p20 = "./baits/20.png"; p21 = "./baits/21.png"; p22 = "./baits/22.png"; p23 = "./baits/23.png"; p24 = "./baits/24.png"; p25 = "./baits/25.png";
         number1 = 25;
@@ -166,9 +111,6 @@ bot.on('message', (message) => {
            .addField("/pong", "pong ping")
            .addField("/despacito2", "some despacito meme")
            .addField("/storytime", "some clickbait meme")
-           .addField("/play", "Play/add a song to quene")
-           .addField("/skip", "Skip the song of the quene")
-           .addField("/stop", "Stop the sound")
            .setColor(0x00FFFF)
            .setFooter("List of commands")
         message.author.sendEmbed(embed);
