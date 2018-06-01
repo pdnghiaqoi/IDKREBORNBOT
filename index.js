@@ -5,8 +5,6 @@ const bot = new Discord.Client();
 
 var prefix = "/"
 
-
-
 var ball = [
     "oh yes",
     "maybe",
@@ -102,6 +100,7 @@ bot.on('message', (message) => {
         };
     break;
         case "help":
+        message.react("ok_hand")
         var embed = new Discord.RichEmbed()
            .addField("/help", "Show this.")
            .addField("/info", "Show the info of this bot.")
