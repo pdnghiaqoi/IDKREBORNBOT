@@ -12,12 +12,19 @@ module.exports.run = async (bot, message, args) => {
     .addField("Who report him?", `${message.author} with ID: ${message.author.id}`)
     .addField("Where he got reported?", message.channel)
     .addField("When he got reported?", message.createdAt)
-    .addField("Why he got reported?", rreason);
+    .addField("Why he got reported/Proof?", rreason);
+    let authorRe = new Discord.RichEmbed()
+    .setDescription("Your report was sended into reports and will resolve soon!")
+    .setColor("#0x00FFFF")
+    .setFooter("Review")
+    .addField("You was reported a user named", `${rUser} with ID: ${rUser.id}`)
+    .addField("Where you report him:", message.channel)
+    .addField("When you report him:", message.createdAt)
+    .addField("Your reason/proof:", rreason);
 
     let reportschannel = message.guild.channels.find(`name`, "reports");
     if(!reportschannel) return message.channel.send("Couldn't find reports channel.");
-
-
+    message.author.sendEmbed(authorRe);
     message.delete().catch(O_o=>{});
     reportschannel.send(reportEmbed);
 
