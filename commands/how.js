@@ -9,6 +9,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("/serverinfo", "Show this server's info.")
     .addField("/despacito2", "some despacito meme")
     .addField("/storytime", "some clickbait meme")
+    .addField("/loader", "Send you the IDK REBORN Admin loader.")
     .setColor(0x00FFFF)
     .setFooter("List of commands")
  message.author.sendEmbed(embed);
