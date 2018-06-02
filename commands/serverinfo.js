@@ -4,7 +4,7 @@ module.exports.run = async (bot, message, args) => {
     let sicon = message.guild.iconURL;
     let serverembed = new Discord.RichEmbed()
     .setFooter("Server Information")
-    .setColor("#15f153")
+    .setColor("#0x00FFFF")
     .setThumbnail(sicon)
     .addField("What this server's name?", `This server's name is ${message.guild.name}`)
     .addField("When this server was created?",`This server was created at ${message.guild.createdAt}`)
