@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("When did you created?",`I was created at ${bot.user.createdAt}`)
     .addField("Who created you?", "pdnghiaqoi/IDK REBORN was created me!")
     .setFooter("Info of this bot.");
-    message.channel.send(botembed);
+    message.author.sendEmbed(botembed);
 }
 
 module.exports.help = {
