@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("When i joined this group?", `You joined this group at ${message.member.joinedAt}`)
     .addField("How many members we got here?", `Totally, there are ${message.guild.memberCount} members.`);
 
-    message.channel.send(serverembed);
+    message.author.sendEmbed(serverembed);
 }
 
 module.exports.help = {
