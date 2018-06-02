@@ -6,13 +6,13 @@ module.exports.run = async (bot, message, args) => {
     let rreason = args.join(" ").slice(22);
 
     let reportEmbed = new Discord.RichEmbed()
-    .setDescription("Reports")
+    .setDescription("Twin brother of <@407179814974259200>")
     .setColor("#15f153")
-    .addField("Reported User", `${rUser} with ID: ${rUser.id}`)
-    .addField("Reported By", `${message.author} with ID: ${message.author.id}`)
-    .addField("Channel", message.channel)
-    .addField("Time", message.createdAt)
-    .addField("Reason", rreason);
+    .addField("A user was got reported!", `${rUser} with ID: ${rUser.id}`)
+    .addField("Who report him?", `${message.author} with ID: ${message.author.id}`)
+    .addField("Where he got reported?", message.channel)
+    .addField("When he got reported?", message.createdAt)
+    .addField("Why he got reported?", rreason);
 
     let reportschannel = message.guild.channels.find(`name`, "reports");
     if(!reportschannel) return message.channel.send("Couldn't find reports channel.");
