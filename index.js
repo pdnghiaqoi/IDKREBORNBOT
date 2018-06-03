@@ -19,8 +19,10 @@ fs.readdir("./commands/", (err, files) => {
 });
 
 bot.on("ready", async () => {
-  bot.user.setActivity("/how. Still WIP!", {type: "WATCHING"});
+  bot.user.setStatus('idle')
 
+  bot.user.setGame('/help = cmds.Bot >= Beta', 'https://www.twitch.tv/pdnghia')
+   
 });
 
 bot.on("message", async message => {
