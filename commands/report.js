@@ -2,8 +2,7 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
     let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-     if (message.member.roles.some(r=>["Report Declinded"].includes(r.name))) return; message.author.sendMessage("Sorry, but you was report banned.")
-    if(!rUser) return message.channel.send("Wait, the user didn't exist! Make sure to type the correct name,and it need to exist in our group!");
+    if(!rUser) return message.channel.send("where da hell is that person? where am i?");
     let rreason = args.join(" ").slice(22);
 
     let reportEmbed = new Discord.RichEmbed()
