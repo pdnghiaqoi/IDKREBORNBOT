@@ -45,7 +45,7 @@ bot.on("message", async message => {
            // the user can type the command ... your command code goes here :)
 
         // Adds the user to the set so that they can't talk for a minute
-        if(message.member.roles.some(r=>["No Cooldown"].includes(r.name)) ) {
+        if(message.author.roles.some(r=>["No Cooldown"].includes(r.name)) ) {
           return;
         } else {
         talkedRecently.add(message.author.id);
