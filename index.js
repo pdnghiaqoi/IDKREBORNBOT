@@ -32,10 +32,9 @@ bot.on("message", async message => {
   if(!message.startsWith(botconfig.prefix)) return; 
   
   if (talkedRecently.has(message.author.id)) {
-      if(!message.author.roles.some(r=>["No Cooldown"].includes(r.name))) {
    
             message.channel.send("shadup everyone is sleeping. wait 1 min so we can talk a again");
-      }
+
     } else {
       let prefix = botconfig.prefix;
   let messageArray = message.content.split(" ");
