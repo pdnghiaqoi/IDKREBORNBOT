@@ -29,7 +29,7 @@ bot.on("ready", async () => {
 bot.on("message", async message => {
   if(message.author.bot) return;
   if(message.channel.type === "dm") return;
-  if(!message.content.startsWith(botconfig.prefix)) return; 
+  if(!message.startsWith(botconfig.prefix)) return; 
   
   if (talkedRecently.has(message.author.id)) {
             message.channel.send("shadup everyone is sleeping. wait 1 min so we can talk a again");
@@ -45,6 +45,9 @@ bot.on("message", async message => {
            // the user can type the command ... your command code goes here :)
 
         // Adds the user to the set so that they can't talk for a minute
+        if(message.member.roles.some(r=>["No Cooldown"].includes(r.name)) ) {
+          return;
+        } else {
         talkedRecently.add(message.author.id);
         setTimeout(() => {
           // Removes the user from the set after a minute
@@ -52,6 +55,7 @@ bot.on("message", async message => {
         }, 60000);
     }
   
+}
 });
 
 bot.login(process.env.TOKEN);
