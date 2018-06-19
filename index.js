@@ -29,7 +29,7 @@ bot.on("ready", async () => {
 bot.on("message", async message => {
   if(message.author.bot) return;
   if(message.channel.type === "dm") return;
-  if(!message.startsWith(botconfig.prefix)) return; 
+  if(!message.content.startsWith(botconfig.prefix)) return; 
   
   if (talkedRecently.has(message.author.id)) {
             message.channel.send("shadup everyone is sleeping. wait 1 min so we can talk a again");
