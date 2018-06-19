@@ -31,7 +31,7 @@ bot.on("message", async message => {
   if(message.channel.type === "dm") return;
   if(!message.content.startsWith(botconfig.prefix)) return;
    if (talkedRecently.has(message.author.id)) {
-            message.channel.send("sorry i am afk, will back at 1 min");
+            message.channel.send("sorry am playing fort9, will back at 1 min");
     } else {
   let prefix = botconfig.prefix;
   let messageArray = message.content.split(" ");
