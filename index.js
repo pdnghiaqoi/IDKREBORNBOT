@@ -28,24 +28,13 @@ bot.on("ready", async () => {
 bot.on("message", async message => {
   if(message.author.bot) return;
   if(message.channel.type === "dm") return;
-  if(!message.startsWith(botconfig.prefix)) return; 
-  
-  if (talkedRecently.has(message.author.id)) {
-    message.channel.send("pls wait 1 min so we can talk back");
-} else {
-   let prefix = botconfig.prefix;
-   let messageArray = message.content.split(" ");
-   let cmd = messageArray[0];
-   let args = messageArray.slice(1);
-   let commandfile = bot.commands.get(cmd.slice(prefix.length));
-   if(commandfile) commandfile.run(bot,message,args);
-talkedRecently.add(message.author.id);
-setTimeout(() => {
-  talkedRecently.delete(message.author.id);
-}, 60000);
-}
 
- 
+  let prefix = botconfig.prefix;
+  let messageArray = message.content.split(" ");
+  let cmd = messageArray[0];
+  let args = messageArray.slice(1);
+  let commandfile = bot.commands.get(cmd.slice(prefix.length));
+  if(commandfile) commandfile.run(bot,message,args);
 
 });
 
