@@ -1,3 +1,4 @@
+const talkedRecently = new Set();
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const fs = require("fs");
@@ -28,14 +29,27 @@ bot.on("ready", async () => {
 bot.on("message", async message => {
   if(message.author.bot) return;
   if(message.channel.type === "dm") return;
-
-  let prefix = botconfig.prefix;
+ if (talkedRecently.has(msg.author.id)) {
+            msg.channel.send("shadup everyone is sleeping. wait 1 min so we can talk a again");
+    } else {
+      let prefix = botconfig.prefix;
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
   let commandfile = bot.commands.get(cmd.slice(prefix.length));
   if(commandfile) commandfile.run(bot,message,args);
 
+
+           // the user can type the command ... your command code goes here :)
+
+        // Adds the user to the set so that they can't talk for a minute
+        talkedRecently.add(msg.author.id);
+        setTimeout(() => {
+          // Removes the user from the set after a minute
+          talkedRecently.delete(msg.author.id);
+        }, 60000);
+    }
+  
 });
 
 bot.login(process.env.TOKEN);
