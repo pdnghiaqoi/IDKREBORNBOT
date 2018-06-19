@@ -29,8 +29,8 @@ bot.on("ready", async () => {
 bot.on("message", async message => {
   if(message.author.bot) return;
   if(message.channel.type === "dm") return;
- if (talkedRecently.has(msg.author.id)) {
-            msg.channel.send("shadup everyone is sleeping. wait 1 min so we can talk a again");
+  if (talkedRecently.has(message.author.id)) {
+            message.channel.send("shadup everyone is sleeping. wait 1 min so we can talk a again");
     } else {
       let prefix = botconfig.prefix;
   let messageArray = message.content.split(" ");
@@ -43,10 +43,10 @@ bot.on("message", async message => {
            // the user can type the command ... your command code goes here :)
 
         // Adds the user to the set so that they can't talk for a minute
-        talkedRecently.add(msg.author.id);
+        talkedRecently.add(message.author.id);
         setTimeout(() => {
           // Removes the user from the set after a minute
-          talkedRecently.delete(msg.author.id);
+          talkedRecently.delete(message.author.id);
         }, 60000);
     }
   
