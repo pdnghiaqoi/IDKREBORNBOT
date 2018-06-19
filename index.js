@@ -21,7 +21,7 @@ fs.readdir("./commands/", (err, files) => {
 bot.on("ready", async () => {
   bot.user.setStatus('idle')
 
-  bot.user.setGame('/how. Still in WIP!', 'https://www.twitch.tv/pdnghia')
+  bot.user.setGame('Fortnite', 'https://www.twitch.tv/pdnghia')
    
 });
 
