@@ -30,8 +30,8 @@ bot.on("message", async message => {
   if(message.channel.type === "dm") return;
   if(!message.startsWith(botconfig.prefix)) return; 
   
-  if (talkedRecently.has(msg.author.id)) {
-    msg.channel.send("pls wait 1 min so we can talk back");
+  if (talkedRecently.has(message.author.id)) {
+    message.channel.send("pls wait 1 min so we can talk back");
 } else {
    let prefix = botconfig.prefix;
    let messageArray = message.content.split(" ");
@@ -39,9 +39,9 @@ bot.on("message", async message => {
    let args = messageArray.slice(1);
    let commandfile = bot.commands.get(cmd.slice(prefix.length));
    if(commandfile) commandfile.run(bot,message,args);
-talkedRecently.add(msg.author.id);
+talkedRecently.add(message.author.id);
 setTimeout(() => {
-  talkedRecently.delete(msg.author.id);
+  talkedRecently.delete(message.author.id);
 }, 60000);
 }
 
