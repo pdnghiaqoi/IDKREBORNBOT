@@ -1,4 +1,3 @@
-const talkedRecently = new Set();
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const fs = require("fs");
@@ -22,7 +21,7 @@ fs.readdir("./commands/", (err, files) => {
 bot.on("ready", async () => {
   bot.user.setStatus('idle')
 
-  bot.user.setGame('Fortnite. also prefix is /', 'https://www.twitch.tv/pdnghia')
+  bot.user.setGame('Fortnite. Say /how to cmds', 'https://www.twitch.tv/pdnghia')
    
 });
 
@@ -30,23 +29,13 @@ bot.on("message", async message => {
   if(message.author.bot) return;
   if(message.channel.type === "dm") return;
   if(!message.content.startsWith(botconfig.prefix)) return;
-   if (talkedRecently.has(message.author.id)) {
-            message.channel.send("sorry am playing fort9, will back at 1 min");
-    } else {
   let prefix = botconfig.prefix;
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
   let commandfile = bot.commands.get(cmd.slice(prefix.length));
   if(commandfile) commandfile.run(bot,message,args);
-        talkedRecently.add(message.author.id);
-        setTimeout(() => {
-          talkedRecently.delete(message.author.id);
-        }, 60000);
-    }
-
-
-
+       
 });
 
 bot.login(process.env.TOKEN);
