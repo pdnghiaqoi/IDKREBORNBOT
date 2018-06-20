@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("When he got reported?", message.createdAt)
     .addField("Why he got reported/Proof?", rreason);
     let authorRe = new Discord.RichEmbed()
-    .setDescription("Your report was sended into reports and will resolve soon!")
+    .setDescription("Your report was sended into reports channel and will resolve soon!")
     .setColor("#0x00FFFF")
     .setFooter("Review")
     .addField("You was reported a user named", `${rUser} with ID: ${rUser.id}`)
