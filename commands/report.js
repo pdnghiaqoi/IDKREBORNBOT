@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("Your reason/proof:", rreason)
     .addField("Time:", message.createdAt);
 
-    let reportschannel = message.guild.channels.find(`name`, "recently-reports");
+    let reportschannel = message.guild.channels.get("458879401069772840");
     if(!reportschannel) return message.channel.send("Couldn't find reports channel.");
     message.author.sendEmbed(authorRe);
     message.delete().catch(O_o=>{});
