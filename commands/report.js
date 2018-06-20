@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
         if (message.channel.id === '458901096564260864') {
-    let rreason = args.join(" ").slice(22);
+    let rreason = args.slice(1).join(" ");
 
     let reportEmbed = new Discord.RichEmbed()
     .setDescription("Report Info:")
