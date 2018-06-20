@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
-     if (message.channel.id === '458901096564260864') {
+     if (message.channel.name === 'reports') {
     let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!rUser) return message.channel.send("where da hell is that person? where am i?");
     let rreason = args.join(" ").slice(22);
@@ -30,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
     reportschannel.send(reportEmbed);
 
      } else {
-         message.channel.sendMessage("sir this is illegal at our country. pls move into <#458901096564260864>")
+         message.channel.sendMessage("sir this is illegal at our country. pls move into #reports")
      }}
  
 module.exports.help = {
