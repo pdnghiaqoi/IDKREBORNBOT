@@ -1,5 +1,6 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
+const Auditlog = require("discord-auditlog");
 const fs = require("fs");
 const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
@@ -21,7 +22,7 @@ fs.readdir("./commands/", (err, files) => {
 bot.on("ready", async () => {
   bot.user.setStatus('idle')
 
-  bot.user.setGame('Fortnite. Say /how to cmds', 'https://www.twitch.tv/pdnghia')
+  bot.user.setGame('Say /how to cmds | despacito 2', 'https://www.twitch.tv/pdnghia')
    
 });
 
@@ -36,6 +37,13 @@ bot.on("message", async message => {
   let commandfile = bot.commands.get(cmd.slice(prefix.length));
   if(commandfile) commandfile.run(bot,message,args);
        
+});
+
+Auditlog(bot, {
+    "serverid": {
+        channel: "logs",
+        movement: "join-message"
+    }
 });
 
 bot.login(process.env.TOKEN);
