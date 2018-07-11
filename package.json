@@ -9,8 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "discord-auditlog": "^1.0.2",
     "discord.js": "^11.3.2",
     "opusscript": "0.0.6",
+    "youtube-dl": "^1.12.2",
     "ytdl-core": "^0.20.4"
   }
 }
